@@ -1,373 +1,283 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
-  <title>Example 11</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://kit.fontawesome.com/9acb57460c.js" crossorigin="anonymous"></script>
-  <style>
-    * {
-
-
-      box-sizing: border-box;
-
-
-    }
-
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      padding: 0px;
-      border: 0px;
-      margin: 0px;
-    }
-
-
-    .col-1 {
-      width: 8.33%;
-    }
-
-
-    .col-2 {
-      width: 16.66%;
-    }
-
-
-    .col-3 {
-      width: 25%;
-    }
-
-
-    .col-4 {
-      width: 33.33%;
-    }
-
-
-    .col-5 {
-      width: 41.66%;
-    }
-
-
-    .col-6 {
-      width: 50%;
-    }
-
-
-    .col-7 {
-      width: 58.33%;
-    }
-
-
-    .col-8 {
-      width: 66.66%;
-    }
-
-
-    .col-9 {
-      width: 75%;
-    }
-
-
-    .col-10 {
-      width: 83.33%;
-    }
-
-
-    .col-11 {
-      width: 91.66%;
-    }
-
-
-    .col-12 {
-      width: 100%;
-    }
-
-
-    [class*="col-"] {
-      float: left;
-      padding: 15px;
-    }
-
-
-    .row::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-
-
-    .navbar {
-      overflow: hidden;
-      background-color: #333;
-    }
-
-
-    .navbar .icon {
-      display: none;
-    }
-
-
-    .navbar a {
-      display: block;
-      float: left;
-      font-size: 1rem;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-
-    .subnav {
-      float: left;
-      overflow: hidden;
-    }
-
-
-    .subnav .subnavbtn {
-      font-size: 1rem;
-      border: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
-    }
-
-
-    .subnav-content {
-      display: none;
-      position: absolute;
-
-
-      background-color: blue;
-      min-width: 160px;
-      z-index: 1;
-    }
-
-
-    .subnav-content a {
-
-
-      float: left;
-      color: white;
-      text-decoration: none;
-    }
-
-
-    .navbar a:hover,
-    .subnav:hover .subnavbtn {
-      background-color: blue;
-    }
-
-
-    .subnav-content a:hover {
-      background-color: #eee;
-      color: black;
-      display: block;
-    }
-
-
-    .subnav:hover .subnav-content {
-      display: block;
-    }
-
-
-    @media only screen and (max-width: 600px) {
-
-
-      .navbar a:not(:first-child),
-      .subnav .subnavbtn {
-        display: none;
-
-
-      }
-
-
-      .navbar a.icon {
-        float: right;
-        display: block;
-        font-size: 15px;
-      }
-    }
-
-
-    @media only screen and (max-width: 600px) {
-      .navbar.responsive {
-        position: relative;
-      }
-
-
-      .navbar.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-
-      .navbar.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-      }
-
-
-      .navbar.responsive .subnav {
-        float: none;
-        display: block;
-      }
-
-
-      .navbar.responsive .subnav-content {
-        position: relative;
-      }
-
-
-      .navbar.responsive .subnav .subnavbtn {
-        display: block;
-        width: 100%;
-        text-align: left;
-      }
-    }
-
-
-    .aimg {
-      width: 85%;
-      height: auto;
-    }
-
-
-    .fnt {
-      font-size: 1.6rem;
-      font-weight: bolder;
-    }
-
-
-    .fnt1 {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-
-    .bg-img {
-      /* The image used */
-      background-image: url("./img/img_forest.jpg");
-
-
-      min-height: 380px;
-
-
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-      margin-left: 15px;
-      margin-right: 15px;
-    }
-
-
-    /* Add styles to the form container */
-    .container {
-      position: absolute;
-      right: 0;
-      margin: 20px;
-      max-width: 300px;
-      padding: 16px;
-      background-color: white;
-    }
-
-
-    /* Full-width input fields */
-    input[type=text],
-    input[type=password] {
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      border: none;
-      background: #f1f1f1;
-    }
-
-
-    input[type=text]:focus,
-    input[type=password]:focus {
-      background-color: #ddd;
-      outline: none;
-    }
-
-
-    /* Set a style for the submit button */
-    .btn {
-      background-color: #04AA6D;
-      color: white;
-      padding: 16px 20px;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-    }
-
-
-    .btn:hover {
-      opacity: 1;
-    }
-  </style>
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "navbar") {
-        x.className += " responsive";
-      } else {
-        x.className = "navbar";
-      }
-    }
-  </script>
+    <title>FestiValTH</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./asset/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Lato", sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        /* Create a Parallax Effect */
+        .bgimg-1,
+        .bgimg-2,
+        .bgimg-3 {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* First image (Logo. Full height) */
+        .bgimg-1 {
+            background-image: url('https://sls-prod.api-onscene.com/partner_files/trueidintrend/93869/20200402_024524_0000.png');
+            min-height: 100%;
+        }
+
+        /* Second image (Portfolio) */
+        .bgimg-2 {
+            background-image: url("https://www.technologychaoban.com/wp-content/uploads/2017/03/4-35.jpg");
+            min-height: 400px;
+        }
+
+        /* Third image (Contact) */
+        .bgimg-3 {
+            background-image: url("https://i.ytimg.com/vi/8yRrETfrNUs/maxresdefault.jpg");
+            min-height: 400px;
+        }
+
+        .w3-wide {
+            letter-spacing: 10px;
+        }
+
+        .w3-hover-opacity {
+            cursor: pointer;
+        }
+
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1600px) {
+
+            .bgimg-1,
+            .bgimg-2,
+            .bgimg-3 {
+                background-attachment: scroll;
+                min-height: 400px;
+            }
+        }
+    </style>
 </head>
 
-
 <body>
-  <!--Row 1-->
 
-  <!--Row 2-->
-  <div class="navbar" id="myTopnav">
-    <a href="#home" style="background-color: green; ">หน้าแรก</a>
-    <div class="subnav">
-      <button class="subnavbtn">แนะนำสถาบัน <i class="fa fa-caret-down"></i></button>
-      <div class="subnav-content">
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar" id="myNavbar">
+            <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#home" class="w3-bar-item w3-button">HOME</a>
+            <a href="#about" class="w3-bar-item w3-button w3-hide-small"> เกี่ยวกับ</a>
+            <a href="#ativity" class="w3-bar-item w3-button w3-hide-small"> กิจกรรม</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-hide-small"> ผู้จัดทำ</a>
+        </div>
 
-
-        <a href="#company">แนะนำสถาบันเทคโนโลยีไทย-ญี่ปุ่น</a>
-        <a href="#team">ผู้บริหารและบุคลากร</a>
-        <a href="#careers">ข้อมูลอาจารย์</a>
-        <a href="#accessories">สิ่งสนับสนุนการเรียนรู้</a>
-      </div>
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+            <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+            <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+            <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+            <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+        </div>
     </div>
 
-
-    <div class="subnav">
-      <button class="subnavbtn">เกี่ยวกับคณะ <i class="fa fa-caret-down"></i></button>
-      <div class="subnav-content">
-        <a href="#bring">คณะวิศวกรรมศาสตร์</a>
-        <a href="#deliver">คณะบริหารธุรกิจ</a>
-        <a href="#package">คณะเทคโนโลยีสารสนเทศ</a>
-      </div>
+    <!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge ">ประเภณี<span class="w3-hide-small">อีสาน</span>
+                “แตกบ้าน”</span>
+        </div>
     </div>
-    <div class="subnav">
-      <button class="subnavbtn">หน่วยงานภายใน <i class="fa fa-caret-down"></i></button>
-      <div class="subnav-content">
-        <a href="#link1">ศูนย์รับสมัคร</a>
-        <a href="#link2">ศูนย์สหกิจศึกษาและจัดหางาน</a>
-        <a href="#link3">ฝ่ายวิชาการ</a>
-        <a href="#link4">ฝ่ายกิจการนักศึกษา</a>
-      </div>
-    </div>
-    <a href="#contact">ติดต่อสถาบัน</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-  </div>
 
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about">
+        <h3 class="w3-center">ประเภณี แตกบ้าน</h3>
+        <!-- <p class="w3-center"><em>I love photography</em></p> -->
+        <p>&nbsp;&nbsp; นิยามคำว่า “แตกบ้าน” หมายถึง การอพยพโยกย้ายถิ่นฐานเพื่อไปหาที่อยู่แห่งใหม่
+            เนื่องจากที่อยู่เดิมนั้นเกิดเหตุเภทภัยสิ่งอวมงคลต่างๆ ขึ้น ผู้คนอยู่ไม่เป็นสุขหรือเกิดโรคระบาดรุนแรงในชุมชน
+            เช่น โรคห่า(อหิวาต์) ฯลฯ สาเหตุเหล่านี้ผู้คนจึงต้องอพยพย้ายถิ่นฐาน เพื่อไปหาที่อยู่ที่ทำกินแห่งใหม่
+            ชาวอีสานเรียกว่า แตกบ้าน หรือ ไปบ้านใหม่</p>
+        <div class="w3-row">
+            <div class="w3-col m6 w3-center w3-padding-large">
+                <!-- <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br> -->
+                <img src="https://www.silpa-mag.com/wp-content/uploads/2017/03/H01-696x519.jpg"
+                    class="w3-round w3-image" alt="Photo of Me" width="500" height="333">
+            </div>
+
+            <!-- Hide this text on small devices -->
+            <div class="w3-col m6 w3-hide-small w3-padding-large">
+                <p>แต่ประเพณีแตกบ้านของชาวอีสานนั้นไม่ได้หมายถึงว่าต้องอพยพไปอย่างถาวร
+                    ประเพณีแตกบ้านคือการอพยพชั่วคราวตามประเพณีความเชื่อ
+                    ซึ่งเป็นพิธีพราหมณ์ในอดีตจะไม่มีพิธีทางสงฆ์มาเกี่ยวข้อง แต่ปัจจุบันนิยมนิมนต์พระสงฆ์
+                    ไปฉันภัตตาหารเพลเพื่อความเป็นสิริมงคลด้วย เป็นประเพณีที่ปฏิบัติสืบทอดกันมาตั้งแต่อดีต
+                    ไม่ปรากฏหลักฐานว่ามีมาตั้งแต่เมื่อไหร่ มูลเหตุมาจากชาวบ้านเชื่อว่า ถ้าปีใดวันขึ้นหรือแรม 1 ค่ำ เดือน
+                    5 ตรงกับวันอังคาร หรือ ขึ้นหรือแรม 5
+                    ค่ำ เดือน 5 ตรงกับวันอังคาร ในปีนั้นต้องมีการแตกบ้าน โดยเชื่อว่าวันนั้นคือวันแข็ง วันร้อน,
+                    วันอุบาทว์, วันโลกาวินาศ, วันไม่เป็นมงคล และจะทำการสิ่งใดก็ไม่ดีไม่งาม จึงมีการทำพิธีแตกบ้าน
+                    ย้ายไปอยู่ที่อื่นชั่วคราว เพื่อแก้เคล็ดให้ชาวบ้านอยู่เย็นเป็นสุข
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Second Parallax Image with Portfolio Text -->
+    <div class="bgimg-2 w3-display-container w3-opacity-min" id="ativity">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide w3-black">กิจกรรม</span>
+        </div>
+    </div>
+
+    <div class="w3-content w3-container w3-padding-64" id="about">
+        <!-- Container (Portfolio Section) -->
+        <p>&nbsp;&nbsp; เมื่อถึงวันดังกล่าวมาบรรจบกัน ปราชญ์ชาวบ้านหรือผู้นำทางพิธีกรรม จะป่าวประกาศให้ชาวบ้านรับรู้ว่า
+            วันนี้ต้องมีการแตกบ้านตามประเพณี (ผู้สูงอายุที่ไปไหนไม่สะดวกก็ให้เฝ้าบ้าน)
+            ให้พากันเตรียมตัวเตรียมข้าวของเสบียง และเครื่องใช้ต่าง ๆ เพื่อที่จะเป็นเครื่องอุปโภคบริโภค
+            เมื่อทุกอย่างพร้อมสรรพ ปราชญ์ชาวบ้านจะอุปโลกน์สมมุติให้ผู้สูงอายุคนหนึ่งนุ่งผ้าขาวห่มขาวสะพายย่ามถือดาบ
+            มาเรียกคนในหมู่บ้านแล้วพูดว่า “ให้เจ้าไปอยู่ยั้งบึงใหญ่นทีทอง ที่นั่นเป็นสถานซุ่มเย็นเลิงเรื่อย
+            จนว่าแสงสูรย์เศร้ามัวเมาคล้อยค่ำ ยามตูดซ้ายสาแล้วค่อยมา” แปลว่า
+            ให้พากันย้ายไปอยู่ที่ริมหนองน้ำเพราะที่นั่นอุดมสมบูรณ์ ให้อยู่จนกระทั่งเย็นจึงค่อยกลับมา</p>
+        <div class="w3-row">
+            <div class="w3-col m6 w3-hide-small w3-padding-large">
+                <p>จากนั้นผู้สูงอายุก็จะพาลูกหลานเดินทางออกจากหมู่บ้านไปทางทิศตะวันออก และหาที่พักใกล้หนองน้ำ
+                    กลุ่มผู้ชายก็จะออกไปหาอาหารที่มีในท้องถิ่น เช่น แย้ กระปอม นก ปลา กุ้ง หอย ฯลฯ
+                    ส่วนกลุ่มผู้หญิงก็จะเตรียมทำอาหาร ประเภท ส้มตำ ต้มหอย ปิ้งกะปอม ต้มปลา
+                    เพื่อรอชาวบ้านมารับประทานร่วมกันเป็นวงใหญ่ ช่วงเวลาพักผ่อนมีการเล่นพนันเพื่อความสนุกสนานด้วย อาทิ
+                    ไพ่ ไฮโล ไก่ชน เป็นต้น เป็นภาพบรรยากาศที่ได้เห็นความสมัครสมานสามัคคี เปี่ยมด้วยความฮักแพงแบ่งปัน
+                    ที่ถือเป็นเอกลักษณ์ของของชุมชนอีสาน เมื่อถึงตอนเย็นได้เวลากลับ
+                    จะมีปราชญ์ชาวบ้านแต่งชุดพราหมณ์นุ่งขาวห่มขาวสะพายย่ามและถือดาบ เดินไปเรียกชาวบ้านกลับ
+                    (เสมือนหนึ่งมีผู้มีบุญมาเชิญกลับบ้าน) เมื่อพ่อพราหมณ์เดินมาถึง ชาวบ้านก็จะสมมุติถามขึ้นว่า “พ่อเอ้ย
+                    แม่นเจ้าลุกแต่ห้องสถานถิ่นแดนใด ใจประสงค์สันน้อจั่งล่วงมาทางนี้ พวกข้าหนีเข็ญเข้าฮอดสะพังเซาฮ่ม
+                    แตกบ้านมาอยู่นี้แต่เช้าดอกนา” แปลว่า พ่อเอ้ย ท่านมาจากไหนถึงได้มาทางนี้
+                    พวกข้าพเจ้าแตกบ้านจึงพากันหนีร้อนมาพึ่งเย็นอยู่ที่นี่
+                </p>
+            </div>
+            <div class="w3-col m6 w3-center w3-padding-large">
+                <!-- <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br> -->
+                <img src="https://www.silpa-mag.com/wp-content/uploads/2017/03/H03.jpg" class="w3-round w3-image"
+                    alt="Photo of Me" width="500" height="333">
+            </div>
+        </div>
+        <p>&nbsp;&nbsp; พ่อพราหมณ์จะตอบกลับว่า “กูนี้มาแต่บ้านอยู่ซุมกินเย็น บัดนี้เข็ญกายหนีจากไปไกลแล้ว
+            แม่นว่าโภยภัยฮ้ายอันตรายบังเบียด หรือว่าผีโขมดฮ้ายกะไปพร้อมพร่ำกัน ให้สูคืนเมือบ้านที่อยู่ภูมิสถาน
+            ที่นั่นโสภางามศีลธรรมจริงแท้ ให้สูคืนเมือถ้อนฮอดยามแลงมันสิค่ำ พ่อนี้มาบอกเจ้าให้ฟ้าวต่าวเมีย ดอกนา
+            ไปๆลูกหลานเอ้ย เมือบ้านเมือเฮียน โพยพะยาดกายไปแล้ว บาดนี้ให้อยู่ดีมีแฮง” แปลว่า
+            เรามาจากบ้านที่มีความอยู่เย็นเป็นสุข เหตุเภทภัยอันตรายสิ่งไม่ดีไม่งามทั้งหลาย ได้หายไปหมดสิ้นแล้ว
+            ให้พวกท่านพากันกลับบ้าน และต่อไปนี้ขอให้อยู่เย็นเป็นสุขด้วยเถิด
+
+            จากนั้นชาวบ้านก็พากันเดินทางกลับบ้าน มีการเป่าแคนร้องลำอย่างสนุกสนาน
+            เมื่อมาถึงบ้านคนที่เฝ้าบ้านไม่ได้ไปด้วยก็ให้พูดว่า “พึ่งมาถึงเหมือนกัน” ห้ามบอกว่าอยู่นี่ไม่ได้ไปไหนเด็ดขาด
+            ถือเป็นอันเสร็จพิธีแตกบ้านของชุมชนอีสาน</p>
+        <br> <br>
+        <p>
+        <p>&nbsp;&nbsp; การแตกบ้านของชุมชนอีสานคือความเชื่อของผู้คนในท้องถิ่น ที่มีการยึดถือปฏิบัติสืบทอดกันมายาวนาน
+            ถึงแม้ในปัจจุบันเป็นยุคเทคโนโลยีที่เจริญแล้ว ผู้คนก็ยังคงยึดถือขนบธรรมเนียมนี้อยู่
+            ซึ่งได้เห็นความสัมพันธ์ระหว่างคนกับคน คนกับธรรมชาติ และคนกับสิ่งเหนือธรรมชาติ
+            ที่คอยเกื้อกูลกันอย่างไม่เสื่อมคลาย
+        </p>
+        <!-- Hide this text on small devices -->
+
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i
+                class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption" class="w3-opacity w3-large"></p>
+        </div>
+    </div>
+
+    <!-- Third Parallax Image with Portfolio Text -->
+    <div class="bgimg-3 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide w3-black">ผู้จัดทำ</span>
+        </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+        <h3 class="w3-center">Nattavipol Boonsangchai</h3>
+        <p class="w3-center"><em>THAI-NICHI INSTITUTE OF TECHNOLOGY</em></p>
+        <div class="w3-row w3-padding-32 w3-section">
+            <div class="w3-col m4 w3-container">
+                <img src="./asset/img/profile.png" class="w3-image w3-round-xxlarge " style="width:100%">
+            </div>
+            <div class="w3-col m8 w3-panel">
+                <div class="w3-large w3-margin-bottom">
+                    <a
+                        href="https://www.google.co.th/maps/place/%E0%B9%80%E0%B8%94%E0%B8%AD%E0%B8%B0%E0%B9%81%E0%B8%84%E0%B8%A1%E0%B8%9E%E0%B8%B1%E0%B8%AA%E0%B8%AA%E0%B9%8C+%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B8%99%E0%B8%97%E0%B9%8C/@13.7380969,100.6313065,17.54z/data=!4m6!3m5!1s0x311d61d1465c589d:0xbab7155ffd1cf3fa!8m2!3d13.7389098!4d100.6326488!16s%2Fg%2F1pzvsx4r9?hl=en&authuser=0">
+                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                        Phattanakarn 39
+                        , Campus Apartment</a> <br>
+                    <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 0960324462
+                    <br>
+                    <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
+                    Nattavipol.bo@gmail.com<br>
+                </div>
+                <p>อ้างอิง</p>
+                <a href="https://www.silpa-mag.com/culture/article_7809"><i
+                        class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Source
+                    Web</a><br>
+                <a
+                    href="https://www.google.com/search?q=%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9E%E0%B8%93%E0%B8%B5%E0%B9%81%E0%B8%95%E0%B8%81%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99&rlz=1C1ONGR_enTH1022TH1022&hl=th&sxsrf=AJOqlzUNAPjPCZU0D3RtAxOmOuNRrQhxJw:1677236216585&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi0jpPn_639AhWtm9gFHVTwDNgQ_AUoAXoECAEQAw&biw=1920&bih=937&dpr=1#imgrc=FNaBQgvJCmeVOM"><i
+                        class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Source img</a>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script>
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+        // Change style of navbar on scroll
+        window.onscroll = function () { myFunction() };
+        function myFunction() {
+            var navbar = document.getElementById("myNavbar");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+            } else {
+                navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+            }
+        }
+
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function toggleFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
 
 </body>
-
 
 </html>
